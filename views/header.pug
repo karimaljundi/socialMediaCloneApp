@@ -1,0 +1,13 @@
+html
+    head
+        style
+            include style.css
+    body
+        div#header
+            header
+                a(href="/home") Home Page
+                 a(href="/allArt") Show All   
+                 a(href="/search") Search
+                 a(href = "/info") user Info
+                 a(href="/logout", class="button-link", onclick = "logout()") Logout
+                 script(src="/client.js") 

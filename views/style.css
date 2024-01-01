@@ -1,0 +1,52 @@
+a{
+   margin-right: 20px;
+}
+.artwork-list ul {
+   list-style-type: none; /* Remove default bullet points */
+   padding: 0; /* Remove default padding */
+   display: flex; /* Display items in a row */
+   flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+   justify-content: space-around; /* Distribute items evenly */
+  }
+  
+  .artwork-list li {
+   margin: 10px; /* Add some margin around each item */
+  }
+  
+  .artwork-list img {
+   width: 100%; /* Make images responsive */
+   height: auto;
+  }
+  .artwork-list h2 {
+   text-align: center; /* Center the text */
+   padding: 20px; /* Add some padding */
+   background-color: #f8f9fa; /* Add a light background color */
+  }
+  @keyframes slideInFromTop {
+   from {
+     transform: translateY(-100%);
+   }
+   to {
+     transform: translateY(0);
+   }
+  }
+  
+  header {
+   animation: 1s ease-out 0s 1 slideInFromTop;
+  }
+  .column {
+    float: left;
+}
+
+.left {
+    width: 25%;
+}
+
+.middle {
+    width: 41%;
+}
+h1 {
+  text-align: center;
+ }
+ 
+  

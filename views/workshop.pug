@@ -1,0 +1,13 @@
+html
+    head
+        include header 
+        style 
+            include style.css
+    body
+        h1(id = "artistWorksop") #{title}
+        h2 enrolled people:
+        each user in users
+            a(href=`http://localhost:3000/artist/${user.username}`, class='large-text', id = "artworkArtist", onclick = "loadArtist()") #{user.username}
+            br
+        button(type="button", onclick="enroll()") enroll
+    script(src="/client.js")

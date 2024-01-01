@@ -1,0 +1,14 @@
+html
+  head
+   title Welcome Page
+   include header
+  body
+    h1 Enter the artwork title, artist name, or artwork category to filter your results 
+    input(type='text' name='artist' , id = "artist", placeholder='artist')
+    input(type='text' name='category' , id = "category", placeholder='category')
+    input(type='text' name='title' , id = "title", placeholder='title')
+    button(type='submit', onclick="searchItem()") Search
+    script(src="/client.js") 
+    div#results
+
+     

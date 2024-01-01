@@ -1,0 +1,37 @@
+html
+    head
+        style
+            include style.css
+        include header
+    body
+        div(class="column left" id="left")
+            h1(id ="artistName") #{artist.username}
+            h2 Artworks:
+            ul
+                each artwork in artist.artworks
+                    li
+                        a(href="/artwork/" + artwork["_id"])= artwork.Title
+            h2 Workshops:
+            each workshop in artist.workshops
+                a(href="/workshop/" + workshop["Title"] )=workshop.Title
+                br
+            button(type="submit", id = "followArtist", onclick= "artistFollowed()") Follow
+        div(class="column middle" id="middle")
+            h2 Reviews:
+                each review in artist.reviews
+                        a(href="/artwork/" + review.post["_id"], id="reviewedPost")=review.post.Title
+                        h3(id = "usersReview") #{review.review}
+                        br
+                        br        
+            h2 Likes: 
+                each liked in artist.likedPosts
+                    div(id="likedPostDiv")
+                        a(href="/artwork/" + liked["_id"], id="likedPost" )=liked.Title
+                        br
+                        br
+            h2 enrolled Workshops:
+                each enrolled in artist.enrolledWorkshops
+                    h3 #{enrolled.Title}
+    
+        script(src="/client.js") 
+                

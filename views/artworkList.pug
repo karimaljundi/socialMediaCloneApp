@@ -1,0 +1,11 @@
+html
+	head
+		style
+			include style.css
+	body
+		ul
+			each artwork in artworks
+				a(href="/artwork/" + artwork["_id"])
+					img(src= artwork.Poster, alt="", srcset="")
+					br
+				

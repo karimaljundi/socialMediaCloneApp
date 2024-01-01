@@ -1,0 +1,63 @@
+html
+    head
+        style
+            include style.css
+        include header
+    body
+        div(class="column left" id="left")
+            h2 Following:
+                br
+                each artist in users.followingArtists
+                    a(href=`http://localhost:3000/artist/${artist.Artist}`, class='large-text', id = "artworkArtist", onclick = "loadArtist()") #{artist.Artist}
+                    button(type="submit", id = "unFollow", onclick= "unFollow()") Unfollow
+                    br
+            h2 Reviews:
+                    br
+                    each review in users.reviews
+                        a(href="/artwork/" + review.post["_id"], id="reviewedPost")=review.post.Title
+                        h3(id = "usersReview") #{review.review}
+                        button(type="submit", id = "removeReview", onclick= "removeReview()") remove
+                        br
+                        br        
+            h2 Likes:
+                each liked in users.likedPosts
+                    div(id="likedPostDiv")
+                        a(href="/artwork/" + liked["_id"], id="likedPost" )=liked.Title
+                        button(type="submit", id = "removeLike", onclick= "removeLike()") remove
+                        br
+                        br
+            h2 enrolled Workshops:
+                each enrolled in users.enrolledWorkshops
+                    h3 #{enrolled.Title}
+            h2 Notifications:
+                each notfication in users.notifications
+                    h3 #{notfication.notification}
+            if users.isArtist
+                button(type="button", id = "toPatreon", onclick= "switchToPatreon()") switch to Patreon
+            else
+                button(type="button", id = "toArtist", onclick= "switchToArtist()") Switch to artist 
+        div(class="column right" id="right")
+            if users.isArtist
+                h2 Artworks:
+                    div(id = "artworksDiv")
+                        each artwork in users.artworks
+                            a(href="/artwork/" + artwork["_id"])=artwork.Title
+                            br
+                include addArt
+                h2 Workshops:
+                div(id = "workshopsDiv")
+                    each workshop in users.workshops
+                        a(href="/workshop/" + workshop["Title"] )=workshop.Title
+                        br
+                    br
+                h2 Add Workshop
+                    br
+                    label(for="workshopTitle") Title:
+                    input(type="text" id="workshopTitle" name="title" required)
+                    br
+                    button(type='submit', onclick="addWorkshop()") Add Workshop
+
+        
+    script(src="/client.js")
+
+        

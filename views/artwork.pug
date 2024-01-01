@@ -1,0 +1,41 @@
+html
+    head
+        include header 
+        style 
+            include style.css
+        
+    body(onload = "loadArtwork()")
+        div(class = 'column left', id = 'left')
+            figure
+                h1(id = "title") #{artwork.Title}
+                a(href=`http://localhost:3000/artist/${artwork.Artist}`, class='large-text', id = "artworkArtist", onclick = "loadArtist()") #{artwork.Artist}
+                h2 Artwork release year: #{artwork.Year}
+                h2 Artwork category: 
+                a(href=`http://localhost:3000/category/${artwork.Category}`, class='large-text', id = "artworkCategory", onclick= "loadCatArts()" ) #{artwork.Category}
+                h2 Artwork medium: 
+                a(href=`http://localhost:3000/medium/${artwork.Medium}`, class='large-text', id = "artworkMedium", onclick="loadMedArt()") #{artwork.Medium}
+                h2 Artwork reviews: 
+                div(id = "artworkReviews")
+                each review in artwork.Reviews
+                    h3 #{review}
+                h2 Artwork Likes: <span id="artworkLikes">#{artwork.Likes}</span>
+
+                div(id="likeAndReview")
+                    label(for='userReview') User Review:
+                    br
+                    input(type='text' id='userReview' name='userReview')
+                    br 
+                    br
+                    button(type="submit", onclick = "addReview()") Submit Review
+                    br
+                    br
+                    button(type='submit', onclick="addLike()") Like
+                    br 
+                    br
+               
+        div(class = 'column middle', id = 'middle')
+            img(src=artwork.Poster)
+            figcaption Artwork description: #{artwork.Description}
+    script(src="/client.js")
+
+        

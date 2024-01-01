@@ -1,0 +1,27 @@
+html
+ head
+   title Add Artwork
+ body
+    h1 Add Artwork
+    br
+    label(for="newtitle") Title:
+    input(type="text" id="newtitle" name="title" required)
+    br
+    label(for="newyear") Year:
+    input(type="number" id="newyear" name="year" required)
+    br
+    label(for="newcategory") Category:
+    input(type="text" id="newcategory" name="category" required)
+    br
+    label(for="newmedium") Medium:
+    input(type="text" id="newmedium" name="medium" required)
+    br
+    label(for="newdescription") Description:
+    textarea(id="newdescription" name="description" required)
+    br
+    label(for="newposter") Poster:
+    input(type="text" id="newposter" name="poster" required)
+    br
+    button(type='button', onclick="addArt()") Add Art
+    script(src="/client.js") 
+           
